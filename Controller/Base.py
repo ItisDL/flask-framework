@@ -5,6 +5,6 @@ from Controller import app
 def hello():
     return 'Hello World'
 
-@app.route('/hello2', methods=['get'])
-def hello():
-    return 'Hello World2'
+@app.route('/helloTwo', methods=['get'])
+def helloTwo():
+    return 'helloTwo'
