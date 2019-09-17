@@ -1,8 +1,10 @@
 # flask-framework
 flask 高并发集群框架
+
+##nginx配置
 ```server {
         listen 80;
-        server_name 't-hc.youjinet.cn';
+        server_name '你的域名';
         location / {
 	        include uwsgi_params;
 	         uwsgi_pass unix:/home/flask-framework/uwsgi.sock;
