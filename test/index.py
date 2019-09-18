@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # by dl
-from common import func, redisdb
+from Common import func, redisdb
 from time import time
 
 if __name__ == '__main__':
