@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # by dl
+from flask import request
 from Controller import app,cache
 @app.route('/hello', methods=['get'])
 @cache.cached(timeout=5)

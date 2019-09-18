@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # by dl
-from flask import Flask, request
+from flask import Flask
 from flask_cors import CORS
 from flask_cache import Cache
 from Config import cache_config
