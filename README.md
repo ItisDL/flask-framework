@@ -1,5 +1,6 @@
 #nginx配置
-```server {
+```
+server {
         listen 80;
         server_name '你的域名';
         location / {
@@ -11,8 +12,6 @@
         }
     }
 ```
-
-![avatar](https://shubei-app.oss-cn-beijing.aliyuncs.com/ItisDLWeiXinShou.jpg)
-
 读后有收获可以微信请作者喝咖啡：:kissing_heart:
 
+<img src="https://shubei-app.oss-cn-beijing.aliyuncs.com/ItisDLWeiXinShou.jpg" width="30%">
