@@ -1,8 +1,6 @@
-# flask-framework
-flask 高并发集群框架
-
-##nginx配置
-```server {
+#nginx配置
+```
+server {
         listen 80;
         server_name '你的域名';
         location / {
@@ -12,4 +10,8 @@ flask 高并发集群框架
 	         uwsgi_param UWSGI_SCRIPT run; ### myapp.py app文件名称
 	         access_log /home/flask-framework/app_access.log;
         }
-    }```
+    }
+```
+读后有收获可以微信请作者喝咖啡：:kissing_heart:
+
+<img src="https://shubei-app.oss-cn-beijing.aliyuncs.com/ItisDLWeiXinShou.jpg" width="30%">
