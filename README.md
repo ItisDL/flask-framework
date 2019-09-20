@@ -12,6 +12,10 @@ server {
         }
     }
 ```
+
+jwt的包使用的是 pyjwt
+为避免干扰请 卸载jwt python_jwt flask_jwt等包
+
 读后有收获可以微信请作者喝咖啡：:kissing_heart:
 
 <img src="https://shubei-app.oss-cn-beijing.aliyuncs.com/ItisDLWeiXinShou.jpg" width="30%">

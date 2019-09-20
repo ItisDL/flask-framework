@@ -2,7 +2,7 @@
 # by dl
 from Controller import app
 from Config import config
-from Auth.JwtAuthC import JwtAuth
+from CommonClass.JwtAuthC import JwtAuth
 from flask import request
 from Common import func
 # 打印所有路由
@@ -10,12 +10,14 @@ from Common import func
 
 @app.before_request
 def beforeRequest():
-    auth_token = request.headers.get('OSR-BearerToken')
-    print(auth_token)
-    if JwtAuth.decode_auth_token(auth_token) is not True:
-        return func.visitFail(code=300)
-    # print(res)
-    pass
+    # 是否在白名单
+    if not func.dontNeedJWT(request.path):
+        # token是否正确
+        auth_token = request.headers.get('OSR-BearerToken')
+        authRes = JwtAuth.decode_auth_token(auth_token)
+        # 如果在指定的错误码范围则返回错误
+        if authRes in ['JWT00001','JWT00002']:
+            return func.visitFail(msg=authRes)
 
 
 if __name__ == '__main__':

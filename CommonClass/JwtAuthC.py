@@ -12,6 +12,8 @@ __author__ = "DL"
 class JwtAuth:
     """
     JWT用户验证
+    jwt的包使用的是 pyjwt
+为避免干扰请 卸载jwt python_jwt flask_jwt等包
     """
 
     @staticmethod

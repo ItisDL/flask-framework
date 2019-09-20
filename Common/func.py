@@ -5,7 +5,7 @@ import decimal
 import json
 
 
-# 处理函数
+# 返回值处理函数
 def _handler(x):
     if isinstance(x, datetime.datetime):
         return x.strftime('%Y-%m-%d %H:%M:%S')
@@ -23,3 +23,14 @@ def visitSuccess(code=200, msg='成功', data={}, extra_data={}):
 def visitFail(code=-500, msg='失败', data={}, extra_data={}):
     json_str = {'code': code, 'msg': msg, 'data': data, 'extra_data': extra_data}
     return json.dumps(json_str, default=_handler)
+
+
+def dontNeedJWT(path):
+    # 这里写上不需要验证的path
+    whiteList = [
+        '/hello',
+    ]
+    if path in whiteList:
+        return True
+    else:
+        return False
