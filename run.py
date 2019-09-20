@@ -1,19 +1,23 @@
 # -*- coding: utf-8 -*-
 # by dl
 from Controller import app
-from Config.config import app_debug
+from Config import config
 from Auth.JwtAuthC import JwtAuth
 from flask import request
+from Common import func
 # 打印所有路由
 # print(app.url_map)
 
-# @app.before_request
+@app.before_request
 def beforeRequest():
     auth_token = request.headers.get('OSR-BearerToken')
-    JwtAuth.decode_auth_token(auth_token)
+    print(auth_token)
+    if JwtAuth.decode_auth_token(auth_token) is not True:
+        return func.visitFail(code=300)
+    # print(res)
     pass
 
 
 if __name__ == '__main__':
-    app.debug = app_debug
-    app.run(debug=True)
+    app.debug = config.app_debug
+    app.run()

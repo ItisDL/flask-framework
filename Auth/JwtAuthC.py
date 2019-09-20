@@ -2,8 +2,7 @@
 # by dl
 import datetime
 import jwt
-import time
-from commonClass.PrintExpectC import PrintExpect
+from CommonClass.PrintExpectC import PrintExpect
 
 from Config import config
 
@@ -46,12 +45,12 @@ class JwtAuth:
                 }
             }
             return jwt.encode(
-                    # 数据载荷
-                    payload,
-                    # 秘钥
-                    config.jwt_secret,
-                    # 加密方式
-                    algorithm='HS256').decode()
+                # 数据载荷
+                payload,
+                # 秘钥
+                config.jwt_secret,
+                # 加密方式
+                algorithm='HS256').decode()
         except:
             return PrintExpect.p_e()
 
@@ -77,20 +76,20 @@ class JwtAuth:
             if ('data' in payload and 'user_id' in payload['data']):
                 return payload
             else:
-                raise jwt.InvalidTokenError
+                return 'JWT00001'
 
         except jwt.ExpiredSignatureError:
 
-            return 'OSR-BearerToken 过期'
+            return 'JWT00002'
 
         except jwt.InvalidTokenError:
-            return '非法 OSR-BearerToken'
+            return 'JWT00001'
 
 
 if __name__ == '__main__':
     # 加密
-    auth_token = JwtAuth.encode_auth_token(123, int(time.time()))
-    print(auth_token)
+    # auth_token = JwtAuth.encode_auth_token(123, int(time.time()))
+    # print(auth_token)
 
-    res = JwtAuth.decode_auth_token(auth_token)
-    print(res)
+    res = JwtAuth.decode_auth_token('123')
+    print(res, type(res))
